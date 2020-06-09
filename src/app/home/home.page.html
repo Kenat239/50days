@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color= "dark">
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+  <span>Estas en Home</span>
+
+  <ion-button color= "secondary" size= "large" expand="block" fill= "outline"
+  (click)= "inicio()">Iniciar</ion-button>
+
+  <ion-button expand= "block" (click)= "borrar ()">logout</ion-button>
+
+  <router-outlet></router-outlet>
+
+</ion-content>

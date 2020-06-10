@@ -6,12 +6,29 @@
 
 <ion-content [fullscreen]="true">
  
-  <span>Estas en Home</span>
+  <h1>Hola: <span> {{useS.usuario.nombre}}. </span> </h1>
+  <div>
+    <span>Estas en Home</span>
+  </div>
 
-  <ion-button color= "secondary" size= "large" expand="block" fill= "outline"
-  (click)= "inicio()">Iniciar</ion-button>
+  <ion-list  *ngFor="let usuario of usuarios">
+    <ion-item>
+      <ion-label>
+        {{usuario.nombre}}
+      </ion-label>
+    </ion-item>
+    
+    </ion-list>
+  
 
-  <ion-button expand= "block" (click)= "borrar ()">logout</ion-button>
+  <!-- <div>
+    <app-lista-usuario></app-lista-usuario>
+    
+  </div> -->
+  <!-- <ion-button color= "secondary" size= "large" expand="block" fill= "outline"
+  (click)= "inicio()">Iniciar</ion-button> -->
+
+  <ion-button  (click)= "borrar ()">logout</ion-button>
 
   <router-outlet></router-outlet>
 

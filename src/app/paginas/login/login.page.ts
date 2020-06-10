@@ -23,8 +23,7 @@ export class LoginPage implements OnInit {
     this.useS.logueado (this.email, this.password).then ( (res) => {
       const parser: any =JSON.parse (res.data);
       console.log (parser);
-      this.useS.email = parser.email;
-      this.useS.password = parser.password;
+      this.useS.usuario = parser.usuario;
       this.useS.token = parser.token;
       this.router.navigate (['/'], {replaceUrl: true});
     }).catch ( (mistake) => {

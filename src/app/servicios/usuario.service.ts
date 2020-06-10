@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HTTP} from '@ionic-native/http/ngx';
 import {Router} from '@angular/router';
+import { IUsuario } from '../interfaces/usuario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
-  token: string;
+  token: string = '';
+  usuario:IUsuario
   email: string;
   password: string;
 

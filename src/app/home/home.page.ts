@@ -12,19 +12,26 @@ import {SocketService} from '../servicios/socket.service';
 })
 export class HomePage {
 
+  usuarios:any[] = [];
   constructor(
-    private useS: UsuarioService,
+    public useS: UsuarioService,
     private router: Router,
     private socket: Socket,
     private socketS: SocketService
   ) {}
 
   ngOnInit () {
-    this.socketS.escucha ()
+    this.socketS.concetar();
+    this.socketS.escucha ();
+    this.socketS.hear('usuariosConectados').subscribe( (res:any) => {
+      console.log(res);
+    })
+   
   }
 
 
   borrar () {
+    this.socketS.desconectar();
     this.useS.logout ();
   }
 

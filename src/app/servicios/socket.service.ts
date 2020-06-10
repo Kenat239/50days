@@ -44,8 +44,8 @@ export class SocketService {
     })
   }
   desconectar() {
-    this.socket.on('disconnect', () => {
-      console.log('te desconectas del servidor');
+    this.socket.on('desconectar', () => {
+      console.log('te desconectaste del servidor');
     })
   }
 }

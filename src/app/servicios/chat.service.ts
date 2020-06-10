@@ -7,6 +7,8 @@ import { Socket } from 'ngx-socket-io';
 })
 export class ChatService {
 
+  public usuarios:any[] = [];
+
   constructor(
     private WsS: SocketService,
     private socket: Socket
@@ -22,15 +24,22 @@ export class ChatService {
   }
 
   GetMensaje(){
-    this.WsS.hear('recibirMensaje')
+    this.WsS.hear('recibirMensaje').subscribe( (res:any) => {
+      
+    })
   }
 
-  GetMensajePriv() {
-   return this.WsS.hear('mensaje-privado');
-  }
+  // GetMensajePriv() {
+  //  return this.WsS.hear('mensaje-privado');
+  // }
 
   getUserActivos() {
-   return this.WsS.hear('usuariosConectados')
+   
+   return this.WsS.hear('usuariosConectados').subscribe( (res:any) => {
+     
+    this.usuarios = res.usuarios;
+
+   })
   }
 
   emitUserActivos() {

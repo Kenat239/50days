@@ -13,7 +13,7 @@ import { HTTP } from '@ionic-native/http/ngx';
 import {SocketIoConfig, SocketIoModule} from 'ngx-socket-io';
 
 
-const config: SocketIoConfig= {url: 'http://192.168.100.20:5002', options: {}};
+const config: SocketIoConfig= {url: 'http://192.168.100.9:5002', options: {}};
 
 @NgModule({
   declarations: [AppComponent],

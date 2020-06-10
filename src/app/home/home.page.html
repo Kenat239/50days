@@ -1,35 +1,21 @@
 <ion-header>
   <ion-toolbar color= "dark">
-    <ion-title>Home</ion-title>
+    <h1>Hola: <span> {{useS.usuario.nombre}}. </span> </h1>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
- 
-  <h1>Hola: <span> {{useS.usuario.nombre}}. </span> </h1>
-  <div>
-    <span>Estas en Home</span>
-  </div>
 
-  <ion-list  *ngFor="let usuario of usuarios">
-    <ion-item>
-      <ion-label>
-        {{usuario.nombre}}
-      </ion-label>
-    </ion-item>
+
+  <app-lista-usuario></app-lista-usuario>
     
-    </ion-list>
   
-
-  <!-- <div>
-    <app-lista-usuario></app-lista-usuario>
-    
-  </div> -->
   <!-- <ion-button color= "secondary" size= "large" expand="block" fill= "outline"
   (click)= "inicio()">Iniciar</ion-button> -->
-
-  <ion-button  (click)= "borrar ()">logout</ion-button>
-
+  <div>
+  <ion-button class="boton" (click)= "borrar ()">logout</ion-button>
+  </div>
+  <ion-button  [routerLink]="['/chat']">prueba chat</ion-button>
   <router-outlet></router-outlet>
 
 </ion-content>

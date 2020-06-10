@@ -18,10 +18,11 @@ export class ListaUsuarioComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  //   this.socketS.hear('usuariosConectados').subscribe( (res:any) => {
-  //     console.log(res);
-  //   })
-  // }
+    this.socketS.hear('usuariosConectados').subscribe( (res:any) => {
 
-}
+      this.usuarios = res.usuarios
+      console.log(res);
+    })
+  }
+
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatService } from '../../servicios/chat.service';
+import { SocketService } from '../../servicios/socket.service';
 
 @Component({
   selector: 'app-mensajes',
@@ -7,8 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MensajesComponent implements OnInit {
 
-  constructor() { }
+  public mensajes : any[] = [];
 
-  ngOnInit() {}
+  public texto = '';
+  elemento:HTMLElement;
+
+  constructor(
+    private WS: SocketService,
+    private chat: ChatService
+  ) { }
+
+  ngOnInit() {
+
+    this.elemento = document.getElementById('chatMensajes');
+
+    this.WS.hear('recibirMensaje').subscribe( (res:any) => {
+      console.log(res);
+
+      this.mensajes.push(res)
+    });
+  }
+
+  EnviarMensaje(){
+    if (this.texto.trim().length === 0) {
+      return;
+    }
+    this.chat.sendMensaje(this.texto);
+
+    this.texto = '';
+  }
 
 }

@@ -18,7 +18,7 @@ export class UsuarioService {
   ) { }
 
   logueado (email: string, password: string) {
-    const url= 'http://192.168.100.20:5002/chat/login';
+    const url= 'http://192.168.100.9:5002/chat/login';
     return this.http.post (url, {email: email, password: password},
      {observe: 'response'});
   }
@@ -33,7 +33,7 @@ export class UsuarioService {
   }
 
   registro (nombre: string, apellido: string, email: string, password: string) {
-    const url= 'http://192.168.100.20:5002/chat/registrar'
+    const url= 'http://192.168.100.9:5002/chat/registrar'
     return this.http.post (url, {nombre: nombre, apellido: apellido, email: email, password: password},
       {observe: 'response'});
   }

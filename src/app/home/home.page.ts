@@ -12,7 +12,7 @@ import {SocketService} from '../servicios/socket.service';
 })
 export class HomePage {
 
-  usuarios:any[] = [];
+  public usuarios = [];
   constructor(
     public useS: UsuarioService,
     private router: Router,
@@ -23,9 +23,10 @@ export class HomePage {
   ngOnInit () {
     this.socketS.concetar();
     this.socketS.escucha ();
-    this.socketS.hear('usuariosConectados').subscribe( (res:any) => {
-      console.log(res);
-    })
+    // this.socketS.hear('usuariosConectados').subscribe( (res:any) => {
+    //   this.usuarios = res.usuarios;
+    //   console.log(res);
+    // })
    
   }
 

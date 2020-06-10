@@ -10,7 +10,11 @@ const routes: Routes = [
       {
         path: 'carrito',
         loadChildren: () => import('../paginas/carrito/carrito.module').then(m => m.CarritoPageModule)
-      }
+      },
+      {
+    path: 'chat',
+    loadChildren: () => import('../paginas/chat/chat.module').then( m => m.ChatPageModule)
+  },
     ]
   }
 ];
